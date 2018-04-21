@@ -17,4 +17,4 @@ scikit_learn for train GMM models, numpy for matrix computing
 
 ####  Experiment
 I choose some speech from thchs30 and random cat small segments to simulate calls.
-![](https://github.com/lianghyv/segvoice/demo.jpg)
+![](https://github.com/lianghyv/segvoice/raw/master/demo.jpg)
