@@ -5,10 +5,10 @@ Because after that we need perform speaker verification on massive user voices, 
 
 ####  How to get pure speaker voices
 * use large training data
-* only keep low score segments
+* only accept low score segments
 * remove silent segments 
 * merge segments if they belong to one speaker, and only keep long merge segments 
-* thanks to some awesome tools, python_speech_features for extract mfcc feature, 
+* thanks to many awesome tools, python_speech_features for extract mfcc feature, 
 scikit_learn for train GMM models, numpy for matrix computing
 
 #### How to use it 
@@ -17,3 +17,4 @@ scikit_learn for train GMM models, numpy for matrix computing
 
 ####  Experiment
 I choose some speech from thchs30 and random cat small segments to simulate calls.
+![](https://github.com/lianghyv/segvoice/demo.jpg)

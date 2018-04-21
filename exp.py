@@ -6,7 +6,7 @@ from seg import generate_mix, segment
 def plot():
 
     A = generate_mix()
-    B = segment('train_A.mdl', 'mix.wav')
+    B = segment('train_A.mdl', 'mix.wav','seg')
     plt.figure(figsize=(10, 3))
 
     for i in range(len(B)):
@@ -17,7 +17,8 @@ def plot():
     for i in range(len(A)):
         idx = len(A)-i-1
         plt.barh(1, A[idx][1], color='r' if A[idx][2] == 'A' else 'g')
-    plt.show()
+
+    plt.savefig("demo.jpg") 
 
 
 if __name__ == '__main__':
