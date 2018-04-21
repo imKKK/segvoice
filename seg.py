@@ -4,7 +4,7 @@ import numpy as np
 import random
 import os
 import pickle
-
+from vad import write_vad
 # simulate dialogue of speaker A and B
 
 
@@ -37,8 +37,12 @@ def generate_mix():
     wavfile.write("mix.wav", fs, np.asarray(data))
     return segs
 
+def vadSeg(gmm_path,wav):
+    write_vad(wav,'tmp.wav')
+    segment(gmm_path,'tmp.wav')
+    os.remove('tmp.wav')
 
-def segment(gmm_path, wav, task):
+def segment(gmm_path, wav):
 
     with open(gmm_path, 'rb') as f:
         gmm = pickle.load(f)
@@ -77,11 +81,10 @@ def segment(gmm_path, wav, task):
         final_segs[i][0] = round(s+1, 2)
         final_segs[i][1] = round(e-1, 2)
 
-    if task == 'seg':
-        cmd = 'sox mix.wav out.wav trim '
-        for f in final_segs:
-            cmd += ' =%s =%s ' % (f[0], f[1])
-        os.system(cmd)
+    cmd = 'sox %s out.wav trim '%wav
+    for f in final_segs:
+        cmd += ' =%s =%s ' % (f[0], f[1])
+    os.system(cmd)
     return final_segs
 
 # evaluate the purity of extracted voices

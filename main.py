@@ -1,5 +1,6 @@
 import sys
 from gmm import save_model, predict
+from seg import vadSeg
 from pprint import pprint
 from seg import segment
 if __name__ == '__main__':
@@ -12,15 +13,14 @@ if __name__ == '__main__':
 
     if task == 'train':
         speech = sys.argv[2]
-        save_model(speech, speech.replace('.wav', '.mdl'))
+        save_model(speech.replace('.wav', '.mdl'),speech)
         print('done.')
 
-    elif task == 'seg' or 'track':
+    elif task == 'seg':
         model = sys.argv[2]
         dialogue = sys.argv[3]
-        rec = segment(model, dialogue, task)
-        if task == 'track':
-            pprint(rec)
+        vadSeg(model, dialogue)
+        print('done.')
 
     elif task == 'verify':
         model = sys.argv[2]

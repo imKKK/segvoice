@@ -1,10 +1,10 @@
-import pickle
+import pickle,os
 import numpy as np
 
 from scipy.io import wavfile
 from python_speech_features import mfcc
 from sklearn.mixture import GaussianMixture
-
+from vad import write_vad
 
 def read_wav(wav):
     return wavfile.read(wav)
@@ -32,16 +32,22 @@ def score(gmm, feat):
     return gmm.score(feat)
 
 
-def save_model(wav, path):
+def save_model(path,wav):
+    write_vad(wav,'tmp.wav')
+    wav = 'tmp.wav'
     gmm = fit(wav)
     with open(path, 'wb') as f:
         pickle.dump(gmm, f)
+    os.remove('tmp.wav')
 
 
 def predict(path, wav):
+    write_vad(wav,'tmp.wav')
+    wav = 'tmp.wav'
     with open(path, 'rb') as f:
         gmm = pickle.load(f)
     feat = get_feat(wav)
+    os.remove('tmp.wav')
     return score(gmm, feat)
 
 

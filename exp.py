@@ -6,7 +6,7 @@ from seg import generate_mix, segment
 def plot():
 
     A = generate_mix()
-    B = segment('train_A.mdl', 'mix.wav','seg')
+    B = segment('train_A.mdl', 'mix.wav')
     plt.figure(figsize=(10, 3))
 
     for i in range(len(B)):
