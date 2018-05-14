@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from seg import generate_mix, segment
-
+from  python_speech_features.base import mfcc,delta
+from scipy.io import wavfile
 
 def plot():
 
@@ -19,7 +20,6 @@ def plot():
         plt.barh(1, A[idx][1], color='r' if A[idx][2] == 'A' else 'g')
 
     plt.savefig("demo.jpg") 
-
 
 if __name__ == '__main__':
     plot()

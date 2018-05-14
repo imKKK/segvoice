@@ -1,8 +1,7 @@
 import sys
 from gmm import save_model, predict
-from seg import vadSeg
-from pprint import pprint
-from seg import segment
+from seg import vadSeg, segment
+
 if __name__ == '__main__':
 
     if len(sys.argv) == 1:
@@ -13,7 +12,7 @@ if __name__ == '__main__':
 
     if task == 'train':
         speech = sys.argv[2]
-        save_model(speech.replace('.wav', '.mdl'),speech)
+        save_model(speech.replace('.wav', '.mdl'), speech)
         print('done.')
 
     elif task == 'seg':
@@ -26,4 +25,4 @@ if __name__ == '__main__':
         model = sys.argv[2]
         speech = sys.argv[3]
         score = predict(model, speech)
-        print('yes') if score < 48 else print('no')
+        print('yes') if score < 50 else print('no')
