@@ -19,5 +19,5 @@ scikit_learn for train GMM models, numpy for matrix computing
 ####  Experiment
 I choose some speech from thchs30 dataset and random cat small segments to simulate calls.
 The following is the timeline of the call, the green part means user and red means customer service.
-We want extract the green part, and the above bar shows the voice we extract by timeline. As the graph shows, the voice we extrac is pretty pure. 
+We want extract the green part, and the above bar shows the voice we extract by timeline. As the image shows, the voice we extract is pretty pure. 
 ![](https://github.com/lianghyv/segvoice/raw/master/demo.jpg)
