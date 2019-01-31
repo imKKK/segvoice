@@ -16,6 +16,19 @@ scikit_learn for train GMM models, numpy for matrix computing
 * install python dependencies => pip install -r requirements 
 * python main.py task model | wav 
 
+##### Example : 
+Train your audio and generate a Model file
+
+```python main.py train /path/to/wav```
+
+> A Model file with the Audio file name will be Generated (in the Audio Directory) after completion of the Train Process
+
+> ex: nice.wav --> nice.mdl 
+
+Now Experiment with your Audio
+
+```python main.py seg /generated/model/file/path /path/to/wav```
+
 ####  Experiment
 I choose some speech from thchs30 dataset and random cat small segments to simulate calls.
 The following is the timeline of the call, the green part means user and red means customer service.
